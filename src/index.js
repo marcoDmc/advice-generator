@@ -1,34 +1,32 @@
-const phrarse = document.querySelector(".phrarse");
+const phrase = document.querySelector(".phrase");
 const title = document.querySelector(".title");
 const btn = document.querySelector(".btn");
 const url = "https://api.adviceslip.com";
 
-async function handleGetPhrarse() {
+async function handleGetPhrase() {
   try {
-    const getPhrarse = await fetch(`${url}/advice/117`)
+    const getPhrase = await fetch(`${url}/advice/117`)
       .then((res) => res.json())
       .then((res) => {
         return res;
       });
-    title.innerText = `advice #${getPhrarse.slip.id}`;
-    phrarse.innerText = `"${getPhrarse.slip.advice}"`;
+    title.innerText = `advice #${getPhrase.slip.id}`;
+    phrase.innerText = `"${getPhrase.slip.advice}"`;
   } catch (error) {
     console.error(error);
   }
 }
-handleGetPhrarse();
+handleGetPhrase();
 
-async function handleRandomPhrarse() {
+async function handleRandomPhrase() {
   try {
-    const randomPhrarse = await fetch(`${url}/advice`).then((res) =>
-      res.json()
-    );
+    const randomPhrase = await fetch(`${url}/advice`).then((res) => res.json());
 
-    title.innerText = `advice #${randomPhrarse.slip.id}`;
-    phrarse.innerText = `"${randomPhrarse.slip.advice}"`;
+    title.innerText = `advice #${randomPhrase.slip.id}`;
+    phrase.innerText = `"${randomPhrase.slip.advice}"`;
   } catch (error) {
     console.error(error);
   }
 }
 
-btn.addEventListener("click", handleRandomPhrarse);
+btn.addEventListener("click", handleRandomPhrase);
