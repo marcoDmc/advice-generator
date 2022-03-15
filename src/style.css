@@ -53,8 +53,7 @@ body {
   overflow: hidden;
 }
 
-.container img {
-}
+
 .container .btn {
   background-color: var(--Green);
   border: none;
@@ -70,6 +69,11 @@ body {
   position: absolute;
   bottom: -28px;
   z-index: 1;
+  cursor: pointer;
+}
+.container .btn:hover {
+  transition: 0.3s ease;
+  box-shadow: 0 0 10px hsl(150, 100%, 66%), 0 0 20px hsl(150, 100%, 66%);
 }
 
 @media (max-width: 400px) {
